@@ -1,0 +1,141 @@
+body {
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+color: #5C5B6B;
+background-color: #ccd5ae;
+}
+
+.brand-logo {
+font-size: 36px;
+font-weight: bold;
+color: #000000;
+margin: 0;
+padding: 14px 16px;
+text-decoration: none;
+background-image: linear-gradient(to bottom right, #d4a373, #73674e);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+nav ul {
+list-style-type: none;
+margin-bottom: 0;
+margin-top: 0;
+padding: 0;
+overflow: hidden;
+background-color: #e9edc9;
+position: sticky;
+top: 0;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+z-index: 999;
+}
+
+nav li {
+float: left;
+}
+
+nav li a {
+display: block;
+color: #d4a373;
+text-align: center;
+padding: 14px 16px;
+padding-top: 20px;
+text-decoration: none;
+}
+
+nav li a:hover {
+background-color: #faedcd;
+color: #d4a373;
+}
+
+nav li a:active {
+background-color: #d4a373;
+color: #e9edc9;
+}
+
+nav input {
+border-radius: 100000px;
+text-align: center;
+}
+
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 2rem;
+background-color: #fefae0;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 4px;
+}
+
+.container h1 {
+font-size: 3rem;
+margin-bottom: 1.5rem;
+color: #5C5B6B;
+background-image: linear-gradient(to bottom right, #d4a373, #73674e);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.container p {
+font-size: 1.25rem;
+line-height: 1.5;
+margin-bottom: 2rem;
+color: #5C5B6B;
+background-image: linear-gradient(to bottom right, #d4a373, #73674e);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.thumbnails {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.thumbnail {
+    width: 25%; /* or any other desired width */
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.thumbnail-container {
+margin: 0.5rem;
+border-radius: 4px;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+}
+
+.thumbnail-container:hover {
+transform: scale(1.05);
+}
+
+.thumbnail.active {
+    border: 2px solid #d4a373;
+  }
+  
+
+.background {
+height: calc(120vh - 500px); /* subtract the height of the header */
+background-image: url("../images/photo1.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+opacity: 0.6;
+animation: scroll 60s linear infinite;
+background-color: #faedcd;
+}
+
+@keyframes scroll {
+0% {
+background-position: 0% 0%;
+}
+100% {
+background-position: 0% 100%;
+}
+}
