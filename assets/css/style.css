@@ -67,6 +67,18 @@ nav input {
     text-align: center;
 }
 
+.background {
+    height: calc(120vh - 500px);
+    /* subtract the height of the header */
+    background-image: url("../images//scroll/scroll.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* opacity: 0.7; */
+    animation: scroll alternate 360s linear infinite;
+    background-color: #faedcd;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -97,6 +109,7 @@ nav input {
 }
 
 .thumbnails {
+    opacity: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,17 +144,7 @@ nav input {
 }
 
 
-.background {
-    height: calc(120vh - 500px);
-    /* subtract the height of the header */
-    background-image: url("../images//scroll/scroll.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    opacity: 0.7;
-    animation: scroll alternate 90s linear infinite;
-    background-color: #faedcd;
-}
+
 
 @keyframes scroll {
     0% {
