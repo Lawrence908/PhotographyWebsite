@@ -124,42 +124,48 @@ document.addEventListener("DOMContentLoaded", function () {
                 // define a variable to keep track of the current thumbnail
                 var currentThumb = null;
     
-    // add a click event listener to the next button
-    nextButton.addEventListener("click", function() {
-        // get the next thumbnail
-        var nextThumb = this.parentElement.nextElementSibling;
-        if (nextThumb) {
-          // get the fullsize image url of the next thumbnail
-          var nextFullsizeUrl = nextThumb.querySelector("img").src.replace("-thumb", "");
-          // set the src attribute of the image element to the next fullsize image url
-          fullsizeImage.setAttribute("src", nextFullsizeUrl);
-          // update the current thumbnail to the next thumbnail
-          this.parentElement = nextThumb;
-        }
-      });
-      
-      // add a click event listener to the previous button
-      prevButton.addEventListener("click", function() {
-        // get the previous thumbnail
-        var prevThumb = this.parentElement.previousElementSibling;
-        if (prevThumb) {
-          // get the fullsize image url of the previous thumbnail
-          var prevFullsizeUrl = prevThumb.querySelector("img").src.replace("-thumb", "");
-          // set the src attribute of the image element to the previous fullsize image url
-          fullsizeImage.setAttribute("src", prevFullsizeUrl);
-          // update the current thumbnail to the previous thumbnail
-          this.parentElement = prevThumb;
-        }
-      });
-    
-                // add an event listener to the document object that listens for the keydown event
-                document.addEventListener("keydown", function(event) {
-                    // check if the Escape key was pressed
-                    if (event.key === "Escape" || event.key === "Esc") {
-                      // hide the fullsize image preview
-                      fullsizeImagePreview.classList.remove("show");
+                // add a click event listener to the next button
+                nextButton.addEventListener("click", function() {
+                    currentThumb = currentThumb === null ? 0 : currentThumb;
+                    currentThumb++;
+                    if (currentThumb >= thumbnails.length) {
+                    currentThumb = 0;
                     }
-                  });
+                    var nextThumb = thumbnails[currentThumb];
+                    var nextFullsizeUrl = nextThumb.querySelector("img").src.replace("-thumb", "");
+                    fullsizeImage.setAttribute("src", nextFullsizeUrl);
+                });
+                
+                // add a click event listener to the previous button
+                prevButton.addEventListener("click", function() {
+                    currentThumb = currentThumb === null ? 0 : currentThumb;
+                    currentThumb--;
+                    if (currentThumb < 0) {
+                    currentThumb = thumbnails.length - 1;
+                    }
+                    var prevThumb = thumbnails[currentThumb];
+                    var prevFullsizeUrl = prevThumb.querySelector("img").src.replace("-thumb", "");
+                    fullsizeImage.setAttribute("src", prevFullsizeUrl);
+                });
+    
+            // add an event listener to the document object that listens for the keydown event
+            document.addEventListener("keydown", function(event) {
+                // check if the event key is ArrowRight or ArrowDown
+                if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+                    // trigger the click event on the next button
+                    nextButton.click();
+                }
+                // check if the event key is ArrowLeft or ArrowUp
+                else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+                    // trigger the click event on the previous button
+                    prevButton.click();
+                }
+                // check if the event key is Escape
+                else if (event.key === "Escape") {
+                    // trigger the click event on the close button
+                    closeButton.click();
+                }
+            });
     
                 // function to close the full-screen preview
                 function closePreview() {
